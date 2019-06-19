@@ -5,7 +5,7 @@ set :branch, :dev
 
 set :deploy_to, -> { "/home/jminguely/www/#{fetch(:application)}" }
 
-set :opcache_file_url, "https://hschumacher.minguely.ch/opcache_clear.php"
+set :opcache_file_url, "http://hschumacher.minguely.ch/opcache_clear.php"
 
 # Extended Server Syntax
 # ======================
