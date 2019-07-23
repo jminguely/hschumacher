@@ -408,3 +408,65 @@
   INFO [7d4b7abe] Finished in 0.300 seconds with exit status 0 (successful).
   INFO [5bbf0532] Running /usr/bin/env echo "Branch dev (at 7e7a13bdb0ab5d6dbfef8224b39f8189512b4c30) deployed as release 20190619054052 by mingus" >> /home/jminguely/www/hschumacher.minguely.ch/revisions.log as jminguely@ssh-jminguely.alwaysdata.net
   INFO [904b1355] Finished in 0.214 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-06-19 07:51:18 +0200 cap staging deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [137b7c7c] Running /usr/bin/env mkdir -p /tmp as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [5a3d038d] Finished in 0.925 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-hschumacher.minguely.ch-staging-mingus.sh 100.0%
+  INFO [59dc11e2] Running /usr/bin/env chmod 700 /tmp/git-ssh-hschumacher.minguely.ch-staging-mingus.sh as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [dada48c0] Finished in 0.237 seconds with exit status 0 (successful).
+  INFO [e73cce7e] Running /usr/bin/env git ls-remote git@github.com:jminguely/hschumacher.git HEAD as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [b7b7ad00] Finished in 1.492 seconds with exit status 0 (successful).
+  INFO [02ab1b96] Running /usr/bin/env mkdir -p /home/jminguely/www/hschumacher.minguely.ch/shared /home/jminguely/www/hschumacher.minguely.ch/releases as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [1372833a] Finished in 0.257 seconds with exit status 0 (successful).
+  INFO [03708304] Running /usr/bin/env mkdir -p /home/jminguely/www/hschumacher.minguely.ch/shared/htdocs/content/uploads /home/jminguely/www/hschumacher.minguely.ch/shared/storage/framework/sessions as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [e6c67f90] Finished in 0.231 seconds with exit status 0 (successful).
+  INFO [c82dfadd] Running /usr/bin/env mkdir -p /home/jminguely/www/hschumacher.minguely.ch/shared /home/jminguely/www/hschumacher.minguely.ch/shared/htdocs as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [7a65f95b] Finished in 0.222 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /home/jminguely/www/hschumacher.minguely.ch/repo
+  INFO [d1f8f142] Running /usr/bin/env git remote set-url origin git@github.com:jminguely/hschumacher.git as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [9c560d73] Finished in 0.229 seconds with exit status 0 (successful).
+  INFO [668ac9be] Running /usr/bin/env git remote update --prune as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [77c1fdd2] Finished in 1.715 seconds with exit status 0 (successful).
+  INFO [3c53b3c8] Running /usr/bin/env mkdir -p /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123 as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [6c1801c3] Finished in 0.197 seconds with exit status 0 (successful).
+  INFO [28f4e773] Running /usr/bin/env git archive dev | /usr/bin/env tar -x -f - -C /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123 as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [45ed8e6a] Finished in 0.518 seconds with exit status 0 (successful).
+  INFO [55a014cf] Running /usr/bin/env echo "c19f7556a373d1c5905f250f6e20f449680ec841" > REVISION as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [2fd6b2be] Finished in 0.193 seconds with exit status 0 (successful).
+  INFO [15f65e7c] Running /usr/bin/env mkdir -p /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123 /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [91e19596] Finished in 0.158 seconds with exit status 0 (successful).
+  INFO [31d8b86a] Running /usr/bin/env ln -s /home/jminguely/www/hschumacher.minguely.ch/shared/.env /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/.env as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [6fc7b0f3] Finished in 0.211 seconds with exit status 0 (successful).
+  INFO [27dccf18] Running /usr/bin/env rm /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/.htaccess as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [3f95e5b3] Finished in 0.185 seconds with exit status 0 (successful).
+  INFO [f84ea1e0] Running /usr/bin/env ln -s /home/jminguely/www/hschumacher.minguely.ch/shared/htdocs/.htaccess /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/.htaccess as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [56454e65] Finished in 0.192 seconds with exit status 0 (successful).
+  INFO [c2e73336] Running /usr/bin/env mkdir -p /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/content /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/storage/framework as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [712b3c0c] Finished in 0.219 seconds with exit status 0 (successful).
+  INFO [a03be79e] Running /usr/bin/env ln -s /home/jminguely/www/hschumacher.minguely.ch/shared/htdocs/content/uploads /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/content/uploads as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [d1f85ab8] Finished in 0.182 seconds with exit status 0 (successful).
+  INFO [c89e9212] Running /usr/bin/env rm -rf /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/storage/framework/sessions as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [b63144d6] Finished in 0.231 seconds with exit status 0 (successful).
+  INFO [919abb05] Running /usr/bin/env ln -s /home/jminguely/www/hschumacher.minguely.ch/shared/storage/framework/sessions /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/storage/framework/sessions as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [54be61c0] Finished in 0.196 seconds with exit status 0 (successful).
+  INFO [0247d3bf] Running php /home/jminguely/www/hschumacher.minguely.ch/shared/composer.phar install --no-dev --prefer-dist --no-interaction --quiet --optimize-autoloader as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [9cfae8f2] Finished in 27.500 seconds with exit status 0 (successful).
+  INFO [a70af8e5] Running /usr/bin/env ln -s /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123 /home/jminguely/www/hschumacher.minguely.ch/releases/current as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [d94382d2] Finished in 0.164 seconds with exit status 0 (successful).
+  INFO [8c94e8e8] Running /usr/bin/env mv /home/jminguely/www/hschumacher.minguely.ch/releases/current /home/jminguely/www/hschumacher.minguely.ch as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [74c664fd] Finished in 0.182 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on ssh-jminguely.alwaysdata.net
+  INFO [2883d574] Running /usr/bin/env rm -rf /home/jminguely/www/hschumacher.minguely.ch/releases/20190618165138 as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [6fb1cca0] Finished in 0.463 seconds with exit status 0 (successful).
+  INFO [1b318e3a] Running /usr/bin/env touch /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/opcache_clear.php as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [d60f6a38] Finished in 1.012 seconds with exit status 0 (successful).
+  INFO [36fa74ce] Running /usr/bin/env chmod -R 644 /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/opcache_clear.php as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [3b28f05b] Finished in 0.364 seconds with exit status 0 (successful).
+  INFO [7693aa03] Running /usr/bin/env echo '<?php opcache_reset(); ?>' > /home/jminguely/www/hschumacher.minguely.ch/releases/20190619055123/htdocs/opcache_clear.php as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [2be5e9c4] Finished in 0.198 seconds with exit status 0 (successful).
+  INFO [f62c1752] Running /usr/bin/env curl -s http://hschumacher.minguely.ch/opcache_clear.php  as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [ba7d7539] Finished in 0.205 seconds with exit status 0 (successful).
+  INFO [2de95315] Running /usr/bin/env echo "Branch dev (at c19f7556a373d1c5905f250f6e20f449680ec841) deployed as release 20190619055123 by mingus" >> /home/jminguely/www/hschumacher.minguely.ch/revisions.log as jminguely@ssh-jminguely.alwaysdata.net
+  INFO [48877716] Finished in 0.185 seconds with exit status 0 (successful).

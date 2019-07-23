@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+{% include 'parts/meta.twig' %}
+
+{{ wp_head() }}
+</head>
+<body {{ fn.body_class()}}>
+
+{# {{ source('icons-sprite.svg') }} #}
+
+<div id="app">
+    {% include 'parts/header.twig' %}
+    <div class="main-wrapper">
+        {% block main %}{% endblock %}
+    </div>
+    {% include 'parts/footer.twig' %}
+</div>
+{{ wp_footer() }}
+
+</body>
+</html>
