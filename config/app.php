@@ -154,7 +154,10 @@ return [
     'hooks' => [
         App\Hooks\Application::class,
         App\Hooks\Compat::class,
+        App\Hooks\Homepage::class,
         App\Hooks\Mail::class,
+        App\Hooks\Post::class,
+        App\Hooks\References::class,
         App\Hooks\Widgets::class
     ],
 

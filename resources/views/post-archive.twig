@@ -1,0 +1,30 @@
+{% extends 'layout/main.twig' %}
+
+{% block main %}  
+  <div class="container-sm">
+    <div class="row">
+      <div class="col-md-8">
+        {% if posts %}
+          <div>
+            {% for post in posts %}
+              <p><a href="{{ fn.get_permalink(post.term_id) }}">{{ post.post_title }}</a></p>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <div class="col-md-4">
+        {% if categories %}
+          <div class="d-flex flex-column justify-content-end">
+            {% for category in categories %}
+              {% if currentCategory == category.term_id %}
+                <a class="btn btn-primary my-1 ml-auto" href="{{ fn.get_post_type_archive_link('post') }}">{{category.name}}</a>
+              {% else %}
+                <a class="btn btn-outline-primary my-1 ml-auto" href="{{ fn.get_term_link(category) }}">{{category.name}}</a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

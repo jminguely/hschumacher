@@ -1,0 +1,39 @@
+{% extends 'layout/main.twig' %}
+
+{% block main %}  
+  <div class="container-sm">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          {% if currentType %}
+            <div class="col-md-6">
+              <h2>Références: {{ currentType.name }}</h2>
+              <p>{{ currentType.description }}</p>
+            </div>
+          {% endif %}
+          {% for reference in posts %}
+            <div class="col-md-6">
+              <a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card">
+                <h5 class="reference-card-title h6">{{ reference.post_title }}</h5>
+                <img class="reference-card-img" src="https://source.unsplash.com/random">
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="col-md-4">
+      {% if types %}
+        <div class="d-flex flex-column justify-content-end">
+          {% for type in types %}
+              {% if currentType.term_id == type.term_id %}
+                <a class="btn btn-primary my-1 ml-auto" href="{{ fn.get_post_type_archive_link('reference') }}">{{type.name}}</a>
+              {% else %}
+                <a class="btn btn-outline-primary my-1 ml-auto" href="{{ fn.get_term_link(type) }}">{{type.name}}</a>
+              {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

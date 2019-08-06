@@ -20,3 +20,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 --------------------------------------------------------------*/
 @import "config/typography";
 @import "config/layout";
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+@import "components/footer";
+@import "components/header";
+@import "components/references";

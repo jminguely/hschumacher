@@ -1,1 +1,24 @@
-<header>header</header>
+<div class="mt-4 mb-5"></div>
+<header class="site-header">
+  <div class="container d-flex justify-content-between align-items-end mb-5">
+    <h1 class="m-0">
+      <a href="#">
+        <img class="logo" src="{{ fn.get_template_directory_uri }}/dist/img/logo.svg" alt="">
+      </a>
+    </h1>
+    <nav class="site-navigation">
+      {% if mainNav %}
+        <ul>
+          {% for item in mainNav %}
+            <li>
+              <a 
+                href="{{ item.url }}">
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </nav>
+  </div>
+</header>

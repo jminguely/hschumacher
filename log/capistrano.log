@@ -470,3 +470,20 @@
   INFO [ba7d7539] Finished in 0.205 seconds with exit status 0 (successful).
   INFO [2de95315] Running /usr/bin/env echo "Branch dev (at c19f7556a373d1c5905f250f6e20f449680ec841) deployed as release 20190619055123 by mingus" >> /home/jminguely/www/hschumacher.minguely.ch/revisions.log as jminguely@ssh-jminguely.alwaysdata.net
   INFO [48877716] Finished in 0.185 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2019-07-25 09:37:53 +0200 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [86026f80] Running /usr/bin/env mkdir -p /tmp as malley-prairie@ssh-malley-prairie.alwaysdata.net
+  INFO [5057c4c6] Finished in 0.369 seconds with exit status 0 (successful).
+  INFO Uploading /tmp/git-ssh-blog-morges.malleyprairie.ch-production-mingus.sh 100.0%
+  INFO [6cb6852c] Running /usr/bin/env chmod 700 /tmp/git-ssh-blog-morges.malleyprairie.ch-production-mingus.sh as malley-prairie@ssh-malley-prairie.alwaysdata.net
+  INFO [f261d691] Finished in 0.104 seconds with exit status 0 (successful).
+  INFO [3afde239] Running /usr/bin/env git ls-remote git@github.com:jminguely/hschumacher.git HEAD as malley-prairie@ssh-malley-prairie.alwaysdata.net
+  INFO [1411eee1] Finished in 1.458 seconds with exit status 0 (successful).
+  INFO [9488ed97] Running /usr/bin/env mkdir -p /home/malley-prairie/www/blog-morges.malleyprairie.ch/shared /home/malley-prairie/www/blog-morges.malleyprairie.ch/releases as malley-prairie@ssh-malley-prairie.alwaysdata.net
+  INFO [88589dbf] Finished in 0.040 seconds with exit status 0 (successful).
+  INFO [8467293b] Running /usr/bin/env mkdir -p /home/malley-prairie/www/blog-morges.malleyprairie.ch/shared/htdocs/content/uploads /home/malley-prairie/www/blog-morges.malleyprairie.ch/shared/storage/framework/sessions as malley-prairie@ssh-malley-prairie.alwaysdata.net
+  INFO [d844ad57] Finished in 0.099 seconds with exit status 0 (successful).
+  INFO [88facdea] Running /usr/bin/env mkdir -p /home/malley-prairie/www/blog-morges.malleyprairie.ch/shared /home/malley-prairie/www/blog-morges.malleyprairie.ch/shared/htdocs as malley-prairie@ssh-malley-prairie.alwaysdata.net
+  INFO [41a72818] Finished in 0.098 seconds with exit status 0 (successful).
+ ERROR linked file /home/malley-prairie/www/blog-morges.malleyprairie.ch/shared/.env does not exist on ssh-malley-prairie.alwaysdata.net

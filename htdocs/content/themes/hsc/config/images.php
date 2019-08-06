@@ -15,5 +15,6 @@
  *                            to the media custom field. If string, used as the display name ;)
  */
 return [
-    'themosis_sample' => [200, 125, false],
+    'reference_thumbnail' => [350, 220, true],
+    'reference_thumbnail_2x' => [700, 440, true],
 ];

@@ -1,0 +1,14 @@
+{% extends 'layout/main.twig' %}
+
+{% block main %}  
+  <div class="container-sm">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>{{ post.post_title }}</h2>
+        <div class="post-content">
+          {{ post.post_content|raw }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

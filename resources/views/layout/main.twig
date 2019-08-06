@@ -12,7 +12,9 @@
 <div id="app">
     {% include 'parts/header.twig' %}
     <div class="main-wrapper">
+        <div class="container">
         {% block main %}{% endblock %}
+        </div>
     </div>
     {% include 'parts/footer.twig' %}
 </div>

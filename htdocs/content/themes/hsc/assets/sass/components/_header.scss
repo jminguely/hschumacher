@@ -1,0 +1,40 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  padding: 1em 0;
+  background: $body-bg;
+  z-index: 9999;
+
+  h1 {
+    font-size: $font-size-base;
+    // padding: 1em 0;
+  }
+
+  .logo {
+    max-width: 200px;;
+  }
+}
+
+.site-navigation {
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        padding: 1em 1em;
+        color: $white;
+        font-family: $headings-font-family;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
