@@ -2,10 +2,11 @@
 <header class="site-header">
   <div class="container d-flex justify-content-between align-items-end mb-5">
     <h1 class="m-0">
-      <a href="#">
+      <a href="{{ fn.home_url() }}">
         <img class="logo" src="{{ fn.get_template_directory_uri }}/dist/img/logo.svg" alt="">
       </a>
     </h1>
+    <a href="#" class="toggle-navigation d-md-none">Menu</a>
     <nav class="site-navigation">
       {% if mainNav %}
         <ul>

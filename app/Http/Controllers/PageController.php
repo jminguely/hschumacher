@@ -13,7 +13,21 @@ class PageController extends Controller
    */
   public function front($post)
   {        
-    return view('page-front', ['post' => $post]);
+    $references = get_posts( array(
+      'post_type' => 'reference',
+      'posts_per_page' => 3,
+      'order' => 'DESC',
+      'orderby' => 'date'
+    ));
+
+    $posts = get_posts( array(
+      'post_type' => 'post',
+      'posts_per_page' => 3,
+      'order' => 'DESC',
+      'orderby' => 'date'
+    ));
+
+    return view('page-front', ['post' => $post, 'references' => $references, 'posts' => $posts]);
   }
 
   public function single($post)

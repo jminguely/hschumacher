@@ -1,5 +1,33 @@
+body {
+  width: 100vw;
+  height: 100vh;
+
+  &.modal-nav-is-visible {
+    overflow: hidden;
+  }
+}
+
 .img-full {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.scroll-snap-container {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+
+  .snap-child {
+    scroll-snap-align: start;
+    padding: 130px 0;
+  }
+}
+
+.section-full-height {
+  min-height: 100vh;
+  display: flex;
+
+  > .section-container {
+    margin: auto 0;
+  }
 }

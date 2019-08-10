@@ -1,10 +1,77 @@
 {% extends 'layout/main.twig' %}
 
 {% block main %}  
-  <div class="container-sm">
-    <h1>Front: {{ post.post_title}}</h1>
-    <div class="post-content">
-      {{ post.post_content|raw }}
-    </div>
+  <div class="container">
+    <section class="snap-child section-full-height intro">
+      <div class="section-container">
+        <div class="text-center">intro</div>
+      </div>
+    </section>
+    <section class="snap-child section-full-height prestations">
+      <div class="section-container">
+        <div class="row">
+          <div class="col-xl-6 col-lg-8 col-md-10">
+            <h2 class="mb-3">Prestations</h2>
+            <div class="text mb-5">
+              {{ fn.get_field("prestations", post.ID).text|raw }}
+            </div>
+            <div>
+              <a href="{{ fn.get_field("prestations", post.ID).link }}" class="btn btn-outline-primary">Prestations</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="snap-child section-full-height history">
+      <div class="section-container">
+        {% if fn.get_field("history", post.ID) %}
+          <div class="history-slider">
+            {% for item in fn.get_field("history", post.ID) %}
+              <h1>{{ item.title }}</h1>
+              <h2>{{ item.date }}</h2>
+            {% endfor %}
+            {% for item in fn.get_field("history", post.ID) %}
+              <h1>{{ item.title }}</h1>
+              <h2>{{ item.date }}</h2>
+            {% endfor %}
+            {% for item in fn.get_field("history", post.ID) %}
+              <h1>{{ item.title }}</h1>
+              <h2>{{ item.date }}</h2>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+    <section class="snap-child section-full-height references">
+      <div class="section-container">
+        <h2>Références</h2>
+        <p>Tempore tempore necessitatibus. Labore eum vero dignissimos. Expedita tempora molestias rerum.</p>
+        {% if references %}
+          <div>
+            {% for reference in references %}
+              <h3>{{ reference.post_title }}</h3>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </section>
+    <section class="snap-child section-full-height references">
+      <div class="section-container">
+        <h2>Blog</h2>
+        {% if posts %}
+          <div>
+            {% for article in posts %}
+            <div>
+              <a href="{{ fn.get_permalink(article.ID) }}">{{ article.post_title }}</a>
+              <time datetime="{{ post.post_date|date("Y-m-d") }}">
+                {{ post.post_date|date("d.m.Y") }}
+              </time>
+              {{ fn.get_the_author_meta('display_name', post.post_author) }}
+            </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+    </section>
   </div>
 {% endblock %}

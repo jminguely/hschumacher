@@ -7,7 +7,7 @@
         {% if posts %}
           <div>
             {% for post in posts %}
-              <p><a href="{{ fn.get_permalink(post.term_id) }}">{{ post.post_title }}</a></p>
+              <p><a href="{{ fn.get_permalink(post.ID) }}">{{ post.post_title }}</a></p>
             {% endfor %}
           </div>
         {% endif %}

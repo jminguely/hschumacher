@@ -19,6 +19,22 @@
     {
       "type": "composer",
       "url": "https://wpackagist.org"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "advanced-custom-fields/advanced-custom-fields-pro",
+        "version": "5.8.3",
+        "type": "wordpress-plugin",
+        "dist": {
+          "type": "zip",
+          "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%PLUGIN_ACF_KEY}&t={%version}"
+        },
+        "require": {
+          "composer/installers": "^1.4",
+          "ffraenz/private-composer-installer": "^2.0"
+        }
+      }
     }
   ],
   "autoload": {
@@ -35,7 +51,8 @@
     "php": ">=7.1.0",
     "johnpbloch/wordpress-core": "^5.1.0",
     "johnpbloch/wordpress-core-installer": "^1.0",
-    "themosis/framework": "^2.0.4"
+    "themosis/framework": "^2.0.4",
+    "advanced-custom-fields/advanced-custom-fields-pro": "5.8.3"
   },
   "require-dev": {
     "laravel/homestead": "^7.0",
