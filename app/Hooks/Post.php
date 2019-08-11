@@ -4,8 +4,6 @@ namespace App\Hooks;
 
 use Themosis\Hook\Hookable;
 use Themosis\Support\Facades\PostType;
-use Themosis\Support\Facades\Metabox;
-use Themosis\Support\Facades\Field;
 use Themosis\Support\Facades\Taxonomy;
 
 class Post extends Hookable
@@ -20,6 +18,7 @@ class Post extends Hookable
     
     function disable_post_tag()
     {
-      register_taxonomy( 'post_tag', array( 'my_post_type_here' ) );
+      // Disable the post_tag taxonomy for the post type
+      register_taxonomy( 'post_tag', [] );
     }
 }

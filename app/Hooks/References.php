@@ -4,9 +4,6 @@ namespace App\Hooks;
 
 use Themosis\Hook\Hookable;
 use Themosis\Support\Facades\PostType;
-use Themosis\Support\Facades\Metabox;
-use Themosis\Support\Facades\Field;
-use Themosis\Support\Facades\TaxonomyField;
 use Themosis\Support\Facades\Taxonomy;
 
 class References extends Hookable
@@ -18,16 +15,6 @@ class References extends Hookable
     {
         $reference = $this->registerPostType();
         $type = $this->registerTaxonomy();
-
-        Metabox::make('properties', 'reference')
-            ->add(Field::editor('description'))
-            ->add(Field::editor('entreprise'))
-            ->add(Field::editor('realisation'))
-            ->add(Field::editor('prestation'))
-            ->add(Field::editor('couts'))
-            ->add(Field::editor('divers'))
-            ->add(Field::collection('galerie'))
-            ->set();
 
         // Not working for now
         // TaxonomyField::make($type)
