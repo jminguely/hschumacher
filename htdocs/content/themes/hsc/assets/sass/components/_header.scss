@@ -1,3 +1,5 @@
+@import "../../../node_modules/sass-burger/burger";
+
 .site-header {
   position: sticky;
   top: 0;
@@ -24,8 +26,12 @@
   margin: 2.5em ($grid-gutter-width / 2) 1em;
   color: $white;
 
-  .modal-nav-is-visible & {
-    // color: red;
+  .burger-icon {
+    @include burger(25px, 3px, 5px, $white);
+  }
+
+  .modal-nav-is-visible & .burger-icon  {
+    @include burger-to-cross;
   }
 }
 

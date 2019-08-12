@@ -6726,6 +6726,48 @@ body.modal-nav-is-visible {
   margin: 2.5em 15px 1em;
   color: #fff;
 }
+.toggle-navigation .burger-icon {
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.toggle-navigation .burger-icon, .toggle-navigation .burger-icon::before, .toggle-navigation .burger-icon::after {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  outline: 1px solid transparent;
+  transition-property: background-color, -webkit-transform;
+  transition-property: background-color, transform;
+  transition-property: background-color, transform, -webkit-transform;
+  transition-duration: 0.3s;
+}
+.toggle-navigation .burger-icon::before, .toggle-navigation .burger-icon::after {
+  position: absolute;
+  content: "";
+}
+.toggle-navigation .burger-icon::before {
+  top: -8px;
+}
+.toggle-navigation .burger-icon::after {
+  top: 8px;
+}
+.modal-nav-is-visible .toggle-navigation .burger-icon {
+  background-color: transparent;
+}
+.modal-nav-is-visible .toggle-navigation .burger-icon::before {
+  -webkit-transform: translateY(8px) rotate(45deg);
+  transform: translateY(8px) rotate(45deg);
+}
+.modal-nav-is-visible .toggle-navigation .burger-icon::after {
+  -webkit-transform: translateY(-8px) rotate(-45deg);
+  transform: translateY(-8px) rotate(-45deg);
+}
+
 @media (max-width: 767.98px) {
   .site-navigation {
     position: fixed;
