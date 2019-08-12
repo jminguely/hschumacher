@@ -13,9 +13,9 @@
           {% endif %}
           {% for reference in posts %}
             <div class="col-md-6">
-              <a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card">
+              <a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card mb-3">
                 <h5 class="reference-card-title h6">{{ reference.post_title }}</h5>
-                <img class="reference-card-img" src="https://source.unsplash.com/random">
+                <img class="reference-card-img" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
               </a>
             </div>
           {% endfor %}
@@ -24,6 +24,12 @@
       <div class="col-md-4">
       {% if types %}
         <div class="d-flex flex-column justify-content-end">
+          {% if currentType.term_id %}
+            <a class="btn btn-outline-primary my-1 ml-auto font-weight-bold" href="{{ fn.get_post_type_archive_link('reference') }}">Toutes les références</a>
+          {% else %}
+            <span class="btn btn-primary my-1 ml-auto font-weight-bold">Toutes les références</span>
+          {% endif %}
+          
           {% for type in types %}
               {% if currentType.term_id == type.term_id %}
                 <a class="btn btn-primary my-1 ml-auto" href="{{ fn.get_post_type_archive_link('reference') }}">{{type.name}}</a>

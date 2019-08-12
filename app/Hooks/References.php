@@ -40,8 +40,7 @@ class References extends Hookable
                 'has_archive' => "references",
                 'taxonomies' => ['type'],
                 'supports' => [
-                    'title',
-                    'thumbnail'
+                    'title'
                 ],
                 'menu_icon' => 'dashicons-clipboard'
             ])
