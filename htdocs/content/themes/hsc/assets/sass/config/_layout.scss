@@ -15,7 +15,7 @@ body {
 
 .scroll-snap-container {
   overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
 
   .snap-child {
     scroll-snap-align: start;
@@ -30,4 +30,12 @@ body {
   > .section-container {
     margin: auto 0;
   }
+}
+
+.structure-card {
+  padding: 1.5em;
+  margin-bottom: 3em;
+  background: transparentize($blue, 0.6);
+  border-bottom-right-radius: 2em;
+  border-bottom-left-radius: 2em;
 }

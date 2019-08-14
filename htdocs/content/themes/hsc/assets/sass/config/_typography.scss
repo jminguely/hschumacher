@@ -52,3 +52,11 @@
     }
   }
 }
+
+.text-two-col {
+  column-count: 2;
+
+  @include media-breakpoint-down(md) {
+    column-count: 1;
+  }
+}

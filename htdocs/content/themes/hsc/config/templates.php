@@ -10,4 +10,5 @@
  */
 return [
     'homepage' => [__("Page d'accueil", THEME_TD), ['page']],
+    'notre-objectif' => [__("Notre objectif", THEME_TD), ['page']],
 ];

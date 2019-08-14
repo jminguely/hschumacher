@@ -34,5 +34,10 @@ class PageController extends Controller
   {        
     return view('page-single', ['post' => $post]);
   }
+
+  public function notreObjectif($post)
+  {        
+    return view('page-notre-objectif', ['post' => $post]);
+  }
   
 }

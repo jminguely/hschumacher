@@ -13,4 +13,5 @@ Route::any('category', 'PostController@archive');
 Route::any('single', 'PostController@single');
 
 Route::any('template', ['homepage', 'uses' => 'PageController@front']);
+Route::any('template', ['notre-objectif', 'uses' => 'PageController@notreObjectif']);
 Route::any('page', 'PageController@single');
