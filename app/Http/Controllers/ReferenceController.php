@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Providers\FpdfServiceProvider;
+
 
 use View;
 
@@ -14,6 +15,17 @@ class ReferenceController extends Controller
   public function single($post, $query)
   {
     return view('reference-single', ['post' => $post]);
+  }
+
+  /**
+   * Generate the pdf
+   */
+  public function pdf($name)
+  {
+    $post = get_page_by_path($name,OBJECT,'reference');
+    $output = FpdfServiceProvider::generate($post);
+    
+    return response($output, 200)->header('Content-Type', 'application/pdf');
   }
 
   public function archive($post, $query) {

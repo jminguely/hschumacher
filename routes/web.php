@@ -7,6 +7,7 @@
 Route::any('tax', ['type', 'uses' => 'ReferenceController@archive']);
 Route::any('postTypeArchive', ['reference', 'uses' => 'ReferenceController@archive']);
 Route::any('singular', ['reference', 'uses' => 'ReferenceController@single']);
+Route::get('/references/{id}.pdf', 'ReferenceController@pdf');
 
 Route::any('home', 'PostController@archive');
 Route::any('category', 'PostController@archive');

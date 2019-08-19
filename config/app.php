@@ -112,6 +112,7 @@ return [
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,
         Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Codedge\Fpdf\FpdfServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
@@ -138,6 +139,7 @@ return [
         // Application providers
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        App\Providers\FpdfServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ],
 
@@ -186,6 +188,7 @@ return [
         'Field' => Themosis\Support\Facades\Field::class,
         'File' => Illuminate\Support\Facades\File::class,
         'Form' => Themosis\Support\Facades\Form::class,
+        'Fpdf' => Codedge\Fpdf\Facades\Fpdf::class,
         'Filter' => Themosis\Support\Facades\Filter::class,
         'Gate' => Illuminate\Support\Facades\Gate::class,
         'Hash' => Illuminate\Support\Facades\Hash::class,
