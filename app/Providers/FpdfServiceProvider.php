@@ -19,7 +19,7 @@ class FpdfServiceProvider extends ServiceProvider
         Fpdf::Image(get_template_directory_uri().'/dist/img/pdf-bg-1.png', -15, 49, 90);
         
         // Logo
-        Fpdf::Image(get_template_directory_uri().'dist/img/logo.png');
+        Fpdf::Image(get_template_directory_uri().'/dist/img/logo.png');
 
         $x = Fpdf::GetX() + 1;
         $y = 50;
