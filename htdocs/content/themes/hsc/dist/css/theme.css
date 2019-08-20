@@ -6643,16 +6643,20 @@ h3 {
   font-weight: bold;
   font-style: normal;
 }
-.main-wrapper ul {
+.main-wrapper ul:not(.wp-block-gallery) {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.main-wrapper ul li {
+.main-wrapper ul:not(.wp-block-gallery) li {
   margin-bottom: 0.4em;
 }
-.main-wrapper ul li:before {
+.main-wrapper ul:not(.wp-block-gallery) li:before {
   content: "_";
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+  margin-top: 1.5em;
 }
 
 .text-two-col {
@@ -6682,12 +6686,15 @@ body.modal-nav-is-visible {
 
 .scroll-snap-container {
   overflow-y: scroll;
-  -ms-scroll-snap-type: y proximity;
-      scroll-snap-type: y proximity;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
 }
 .scroll-snap-container .snap-child {
   scroll-snap-align: start;
   padding: 130px 0;
+}
+.scroll-snap-container .snap-child-no-margin {
+  scroll-snap-align: start;
 }
 
 .section-full-height {
@@ -6728,7 +6735,6 @@ body.modal-nav-is-visible {
   padding: 1em 0;
   background: linear-gradient(to bottom, #002532 50%, rgba(0, 37, 50, 0));
   z-index: 9999;
-  scroll-snap-align: start;
 }
 .site-header h1 {
   font-size: 1rem;
@@ -6882,4 +6888,62 @@ body.modal-nav-is-visible {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.blog-card {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+          flex-direction: column;
+  background: #fff;
+  padding: 1em;
+  transition: background 0.2s ease;
+  color: #00323E;
+}
+.blog-card:hover {
+  text-decoration: none;
+  color: #00323E;
+  background: #e7f7fc;
+}
+.blog-card:hover .blog-card-category {
+  background: #e7f7fc;
+}
+.blog-card .blog-card-category {
+  position: absolute;
+  margin: 15% 0 auto;
+  padding: 0.4em 1em 0.2em 0.5em;
+  z-index: 10;
+  background: #fff;
+  text-decoration: none;
+  border-top-right-radius: 1em;
+  border-bottom-right-radius: 1em;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #31BDE6;
+  transition: background 0.2s ease;
+}
+
+.blog-data .blog-card-time {
+  color: #31BDE6;
+}
+.blog-data .blog-card-sep {
+  color: #cccccc;
+}
+
+.blog-post-thumbnail {
+  position: relative;
+  margin-bottom: 1em;
+}
+.blog-post-thumbnail .blog-post-title {
+  position: absolute;
+  top: 15%;
+  left: 0;
+  padding: 0.5em 3em 0.7em 1.5em;
+  z-index: 10;
+  background: #fff;
+  text-decoration: none;
+  border-top-right-radius: 3em;
+  border-bottom-right-radius: 3em;
+  font-weight: bold;
+  color: #31BDE6;
 }

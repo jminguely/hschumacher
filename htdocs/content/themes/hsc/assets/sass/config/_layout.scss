@@ -15,11 +15,15 @@ body {
 
 .scroll-snap-container {
   overflow-y: scroll;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
 
   .snap-child {
     scroll-snap-align: start;
     padding: 130px 0;
+  }
+
+  .snap-child-no-margin {
+    scroll-snap-align: start;
   }
 }
 

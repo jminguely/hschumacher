@@ -5,9 +5,26 @@
     <div class="row">
       <div class="col-md-8">
         {% if posts %}
-          <div>
+          <div class="row">
             {% for post in posts %}
-              <p><a href="{{ fn.get_permalink(post.ID) }}">{{ post.post_title }}</a></p>
+              <div class="col-md-6 d-flex">
+                <a class="blog-card" href="{{ fn.get_permalink(post.ID) }}">
+                  <span class="blog-card-category">
+                    {{ fn.get_the_category(post.ID)|first.name }}
+                  </span>
+                  {{ fn.get_the_post_thumbnail(post.ID, 'reference_thumbnail', {'class': 'img-full'})|raw }}
+                  <p class="blog-card-title mt-3 mb-0">
+                    {{ post.post_title }}
+                  </p>
+                  <div class="blog-data mt-1">
+                    <time class="blog-card-time" datetime="{{ post.post_date|date("Y-m-d") }}">
+                      {{ post.post_date|date("d.m.Y") }}
+                    </time>
+                    <span class="blog-card-sep">|</span>
+                    <span class="blog-card-author">{{ fn.get_the_author_meta('display_name', post.post_author) }}</span>
+                  </div>
+                </a>
+              </div>
             {% endfor %}
           </div>
         {% endif %}
@@ -15,7 +32,7 @@
       <div class="col-md-4">
         {% if categories %}
           <div class="d-flex flex-column justify-content-end">
-            {% if currentType.term_id %}
+            {% if currentCategory %}
               <a class="btn btn-outline-primary my-1 ml-auto font-weight-bold" href="{{ fn.get_post_type_archive_link('post') }}">Tous les articles</a>
             {% else %}
               <span class="btn btn-primary my-1 ml-auto font-weight-bold">Tous les articles</span>

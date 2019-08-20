@@ -39,7 +39,7 @@
 }
 
 .main-wrapper {
-  ul {
+  ul:not(.wp-block-gallery) {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -50,6 +50,12 @@
         content: "_";
       }
     }
+  }
+}
+
+.post-content {
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1.5em;
   }
 }
 
