@@ -28,11 +28,12 @@ body {
 }
 
 .section-full-height {
-  min-height: 100vh;
+  min-height: calc(100vh - 130px);
   display: flex;
 
   > .section-container {
     margin: auto 0;
+    width: 100%;
   }
 }
 

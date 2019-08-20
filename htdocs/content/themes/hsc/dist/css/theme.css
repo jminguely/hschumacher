@@ -6698,12 +6698,13 @@ body.modal-nav-is-visible {
 }
 
 .section-full-height {
-  min-height: 100vh;
+  min-height: calc(100vh - 130px);
   display: -webkit-flex;
   display: flex;
 }
 .section-full-height > .section-container {
   margin: auto 0;
+  width: 100%;
 }
 
 .structure-card {

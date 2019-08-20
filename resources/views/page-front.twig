@@ -3,8 +3,8 @@
 {% block main %}  
   <div class="container">
     <section class="snap-child section-full-height intro">
-      <div class="section-container">
-        <div class="text-center">intro</div>
+      <div class="section-container d-flex w-100">
+        <div class="m-auto">[animation intro]</div>
       </div>
     </section>
     <section class="snap-child section-full-height prestations">
@@ -25,18 +25,16 @@
     <section class="snap-child section-full-height history">
       <div class="section-container">
         {% if fn.get_field("history", post.ID) %}
-          <div class="history-slider">
+          <div class="history-slider row">
             {% for item in fn.get_field("history", post.ID) %}
-              <h1>{{ item.title }}</h1>
-              <h2>{{ item.date }}</h2>
-            {% endfor %}
-            {% for item in fn.get_field("history", post.ID) %}
-              <h1>{{ item.title }}</h1>
-              <h2>{{ item.date }}</h2>
-            {% endfor %}
-            {% for item in fn.get_field("history", post.ID) %}
-              <h1>{{ item.title }}</h1>
-              <h2>{{ item.date }}</h2>
+              <div class="col-md-4 mb-5">
+                <p class="mb-0"><strong>{{ item.date }}</strong></p>
+                <h3>{{ item.title }}</h3>
+                {% if item.image %}
+                  <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
+                {% endif %}
+                <div>{{ item.text|raw }}</div>
+              </div>
             {% endfor %}
           </div>
         {% endif %}
@@ -44,30 +42,52 @@
     </section>
     <section class="snap-child section-full-height references">
       <div class="section-container">
-        <h2>Références</h2>
-        <p>Tempore tempore necessitatibus. Labore eum vero dignissimos. Expedita tempora molestias rerum.</p>
+        <div class="row">
+          <div class="col-12">
+            <h2>Références</h2>
+            <p>Tempore tempore necessitatibus. Labore eum vero dignissimos. Expedita tempora molestias rerum.</p>
+          </div>
+        </div>
         {% if references %}
-          <div>
+          <div class="row">
             {% for reference in references %}
-              <h3>{{ reference.post_title }}</h3>
+              <div class="col-md-4">
+                <h4>{{ reference.post_title }}</h4>
+                {% if fn.get_field("galerie", reference.ID) %}
+                  <img class="img-fluid" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
+                {% endif %}
+              </div>
             {% endfor %}
           </div>
         {% endif %}
+        
+        <a href="/references" class="btn btn-outline-primary mt-5">Toutes les références</a>
       </div>
     </section>
     <section class="snap-child section-full-height references">
       <div class="section-container">
         <h2>Blog</h2>
         {% if posts %}
-          <div>
-            {% for article in posts %}
-            <div>
-              <a href="{{ fn.get_permalink(article.ID) }}">{{ article.post_title }}</a>
-              <time datetime="{{ post.post_date|date("Y-m-d") }}">
-                {{ post.post_date|date("d.m.Y") }}
-              </time>
-              {{ fn.get_the_author_meta('display_name', post.post_author) }}
-            </div>
+          <div class="row">
+            {% for post in posts %}
+              <div class="col-md-4 d-flex">
+                <a class="blog-card" href="{{ fn.get_permalink(post.ID) }}">
+                  <span class="blog-card-category">
+                    {{ fn.get_the_category(post.ID)|first.name }}
+                  </span>
+                  {{ fn.get_the_post_thumbnail(post.ID, 'reference_thumbnail', {'class': 'img-full'})|raw }}
+                  <p class="blog-card-title mt-auto mb-0 pt-3">
+                    {{ post.post_title }}
+                  </p>
+                  <div class="blog-data pt-1">
+                    <time class="blog-card-time" datetime="{{ post.post_date|date("Y-m-d") }}">
+                      {{ post.post_date|date("d.m.Y") }}
+                    </time>
+                    <span class="blog-card-sep">|</span>
+                    <span class="blog-card-author">{{ fn.get_the_author_meta('display_name', post.post_author) }}</span>
+                  </div>
+                </a>
+              </div>
             {% endfor %}
           </div>
         {% endif %}
