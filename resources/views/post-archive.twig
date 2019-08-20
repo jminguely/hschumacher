@@ -13,10 +13,10 @@
                     {{ fn.get_the_category(post.ID)|first.name }}
                   </span>
                   {{ fn.get_the_post_thumbnail(post.ID, 'reference_thumbnail', {'class': 'img-full'})|raw }}
-                  <p class="blog-card-title mt-3 mb-0">
+                  <p class="blog-card-title mt-auto mb-0 pt-3">
                     {{ post.post_title }}
                   </p>
-                  <div class="blog-data mt-1">
+                  <div class="blog-data pt-1">
                     <time class="blog-card-time" datetime="{{ post.post_date|date("Y-m-d") }}">
                       {{ post.post_date|date("d.m.Y") }}
                     </time>
