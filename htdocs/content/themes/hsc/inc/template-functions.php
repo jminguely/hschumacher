@@ -34,6 +34,13 @@ Action::add('wp_head', function () {
 });
 
 /**
+ * Add the GMap Api Key to the ACF admin
+ */
+Action::add('acf/init', function () {
+    acf_update_setting('google_api_key', env('GMAP_KEY'));
+});
+
+/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  */
 Action::add('after_setup_theme', function () {

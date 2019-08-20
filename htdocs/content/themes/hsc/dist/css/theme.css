@@ -6717,6 +6717,14 @@ body.modal-nav-is-visible {
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
+.acf-map {
+  width: 100%;
+  height: 14em;
+}
+.acf-map img {
+  max-width: inherit !important;
+}
+
 .site-footer {
   background: #00323E;
   margin-top: 2em;

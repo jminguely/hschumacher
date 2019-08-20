@@ -37,5 +37,9 @@ class PageController extends Controller
   {        
     return view('page-notre-objectif', ['post' => $post]);
   }
-  
+
+  public function contact($post)
+  {        
+    return view('page-contact', ['post' => $post]);
+  }
 }
