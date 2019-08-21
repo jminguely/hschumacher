@@ -52,10 +52,12 @@
           <div class="row">
             {% for reference in references %}
               <div class="col-md-4">
-                <h4>{{ reference.post_title }}</h4>
-                {% if fn.get_field("galerie", reference.ID) %}
-                  <img class="img-fluid" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
-                {% endif %}
+                <a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card mb-3">
+                  <h5 class="reference-card-title h6">{{ reference.post_title }}</h5>
+                  {% if fn.get_field("galerie", reference.ID) %}
+                    <img class="reference-card-img" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
+                  {% endif %}
+                </a>
               </div>
             {% endfor %}
           </div>

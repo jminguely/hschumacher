@@ -15,7 +15,9 @@
             <div class="col-md-6">
               <a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card mb-3">
                 <h5 class="reference-card-title h6">{{ reference.post_title }}</h5>
-                <img class="reference-card-img" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
+                {% if fn.get_field("galerie", reference.ID) %}
+                  <img class="reference-card-img" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
+                {% endif %}
               </a>
             </div>
           {% endfor %}

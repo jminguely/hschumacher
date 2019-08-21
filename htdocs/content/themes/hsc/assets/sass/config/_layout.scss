@@ -44,3 +44,19 @@ body {
   border-bottom-right-radius: 2em;
   border-bottom-left-radius: 2em;
 }
+
+.data-table {
+  display: flex;
+
+  @include media-breakpoint-down(sm) {
+    flex-wrap: wrap;
+  }
+
+  .data-table-col {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+    padding-right: 2em;
+    margin-bottom: 2em;
+  }
+}

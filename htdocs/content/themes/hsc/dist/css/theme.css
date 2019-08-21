@@ -6715,6 +6715,27 @@ body.modal-nav-is-visible {
   border-bottom-left-radius: 2em;
 }
 
+.data-table {
+  display: -webkit-flex;
+  display: flex;
+}
+@media (max-width: 767.98px) {
+  .data-table {
+    -webkit-flex-wrap: wrap;
+            flex-wrap: wrap;
+  }
+}
+.data-table .data-table-col {
+  -webkit-flex-grow: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 1;
+          flex-shrink: 1;
+  -webkit-flex-basis: 0;
+          flex-basis: 0;
+  padding-right: 2em;
+  margin-bottom: 2em;
+}
+
 /*--------------------------------------------------------------
 # Components
 --------------------------------------------------------------*/
@@ -6891,6 +6912,7 @@ body.modal-nav-is-visible {
   border-top-right-radius: 1em;
   border-bottom-right-radius: 1em;
   transition: background 0.2s ease;
+  max-width: 80%;
 }
 .reference-card .reference-card-img {
   position: absolute;

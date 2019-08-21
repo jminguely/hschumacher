@@ -13,26 +13,38 @@
     </div>
     
     <div class="snap-child">
-      <div class="row d-flex flex-row justify-content-between">
-        <div class="flex-grow-1 px-3 mb-5">
-          <h3>Entreprise</h3>
-          <p>{{ fn.get_field("entreprise", post.ID)|raw }}</p>
-        </div>
-        <div class="flex-grow-1 px-3 mb-5">
-          <h3>Réalisation</h3>
-          <p>{{ fn.get_field("realisation", post.ID)|raw }}</p>
-        </div>
-        <div class="flex-grow-1 px-3 mb-5">
-          <h3>Prestation</h3>
-          <p>{{ fn.get_field("prestation", post.ID)|raw }}</p>
-        </div>
-        <div class="flex-grow-1 px-3 mb-5">
-          <h3>Couts</h3>
-          <p>{{ fn.get_field("couts", post.ID)|raw }}</p>
-        </div>
-        <div class="flex-grow-1 px-3 mb-5">
-          <h3>Divers</h3>
-          <p>{{ fn.get_field("divers", post.ID)|raw }}</p>
+      <div class="row">
+        <div class="col-12 data-table">
+          {% if fn.get_field("entreprise", post.ID) %}
+            <div class="data-table-col">
+              <h3>Entreprise</h3>
+              <p>{{ fn.get_field("entreprise", post.ID)|raw }}</p>
+            </div>
+          {% endif %}
+          {% if fn.get_field("realisation", post.ID) %}
+            <div class="data-table-col">
+              <h3>Réalisation</h3>
+              <p>{{ fn.get_field("realisation", post.ID)|raw }}</p>
+            </div>
+          {% endif %}
+          {% if fn.get_field("prestation", post.ID) %}
+            <div class="data-table-col">
+              <h3>Prestation</h3>
+              <p>{{ fn.get_field("prestation", post.ID)|raw }}</p>
+            </div>
+          {% endif %}
+          {% if fn.get_field("couts", post.ID) %}
+            <div class="data-table-col">
+              <h3>Couts</h3>
+              <p>{{ fn.get_field("couts", post.ID)|raw }}</p>
+            </div>
+          {% endif %}
+          {% if fn.get_field("divers", post.ID) %}
+            <div class="data-table-col">
+              <h3>Divers</h3>
+              <p>{{ fn.get_field("divers", post.ID)|raw }}</p>
+            </div>
+          {% endif %}
         </div>
       </div>
 
