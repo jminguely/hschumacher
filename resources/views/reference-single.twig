@@ -48,7 +48,7 @@
         </div>
       </div>
 
-      <div class="row">
+      <div class="row snap-child-no-margin">
         {% for image in fn.get_field("galerie", post.ID) %}
           <div class="col-sm-6 col-md-4">
             <img class="img-full mb-3" src="{{ image.sizes.reference_thumbnail }}">
