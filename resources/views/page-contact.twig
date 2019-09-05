@@ -1,17 +1,12 @@
 {% extends 'layout/main.twig' %}
 
-{% block main %}  
-  <div class="container snap-child">
+{% block main %}
+  <div class="container">
     {% if fn.get_field("adresses", post.ID) %}
       <script src="https://maps.googleapis.com/maps/api/js?key={{ fn.env('GMAP_KEY')}}"></script>
-      <script
-        src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
-        crossorigin="anonymous"></script>
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
       <script type="text/javascript">
-        (function($) {
-
-        /*
+        (function ($) { /*
         *  new_map
         *
         *  This function will render a Google Map onto the selected jQuery element
@@ -24,50 +19,48 @@
         *  @return	n/a
         */
 
-        function new_map( $el ) {
-          
-          // var
-          var $markers = $el.find('.marker');
-          
-          
-          // vars
-          var args = {
-            controlSize : 20,
-            zoom : 16,
-            streetViewControl: false,
-            mapTypeControl: false,
-            fullscreenControl: false,
-            center		: new google.maps.LatLng(0, 0),
-            mapTypeId	: google.maps.MapTypeId.SATELLITE
-          };
-          
-          
-          // create map	        	
-          var map = new google.maps.Map( $el[0], args);
-          
-          
-          // add a markers reference
-          map.markers = [];
-          
-          
-          // add markers
-          $markers.each(function(){
-            
-              add_marker( $(this), map );
-            
-          });
-          
-          
-          // center map
-          center_map( map );
-          
-          
-          // return
-          return map;
-          
-        }
+          function new_map($el) { // var
+            var $markers = $el.find('.marker');
 
-        /*
+
+            // vars
+            var args = {
+              controlSize: 20,
+              zoom: 16,
+              streetViewControl: false,
+              mapTypeControl: false,
+              fullscreenControl: false,
+              center: new google.maps.LatLng(0, 0),
+              mapTypeId: google.maps.MapTypeId.SATELLITE
+            };
+
+
+            // create map
+            var map = new google.maps.Map($el[0], args);
+
+
+            // add a markers reference
+            map.markers = [];
+
+
+            // add markers
+            $markers.each(function () {
+
+              add_marker($(this), map);
+
+            });
+
+
+            // center map
+            center_map(map);
+
+
+            // return
+            return map;
+
+          }
+
+          /*
         *  add_marker
         *
         *  This function will add a marker to the selected Google Map
@@ -81,23 +74,18 @@
         *  @return	n/a
         */
 
-        function add_marker( $marker, map ) {
+          function add_marker($marker, map) { // var
+            var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
 
-          // var
-          var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+            // create marker
+            var marker = new google.maps.Marker({position: latlng, map: map});
 
-          // create marker
-          var marker = new google.maps.Marker({
-            position	: latlng,
-            map			: map
-          });
+            // add to array
+            map.markers.push(marker);
 
-          // add to array
-          map.markers.push( marker );
+          }
 
-        }
-
-        /*
+          /*
         *  center_map
         *
         *  This function will center the map, showing all markers attached to this map
@@ -110,36 +98,29 @@
         *  @return	n/a
         */
 
-        function center_map( map ) {
+          function center_map(map) { // vars
+            var bounds = new google.maps.LatLngBounds();
 
-          // vars
-          var bounds = new google.maps.LatLngBounds();
+            // loop through all markers and create bounds
+            $.each(map.markers, function (i, marker) {
 
-          // loop through all markers and create bounds
-          $.each( map.markers, function( i, marker ){
+              var latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
 
-            var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
+              bounds.extend(latlng);
 
-            bounds.extend( latlng );
+            });
 
-          });
+            // only 1 marker?
+            if (map.markers.length == 1) { // set center of map
+              map.setCenter(bounds.getCenter());
+              map.setZoom(16);
+            } else { // fit to bounds
+              map.fitBounds(bounds);
+            }
 
-          // only 1 marker?
-          if( map.markers.length == 1 )
-          {
-            // set center of map
-              map.setCenter( bounds.getCenter() );
-              map.setZoom( 16 );
-          }
-          else
-          {
-            // fit to bounds
-            map.fitBounds( bounds );
           }
 
-        }
-
-        /*
+          /*
         *  document ready
         *
         *  This function will render each map when the document is ready (page has loaded)
@@ -151,23 +132,21 @@
         *  @param	n/a
         *  @return	n/a
         */
-        // global var
-        var map = null;
+          // global var
+          var map = null;
 
-        $(document).ready(function(){
+          $(document).ready(function () {
 
-          $('.acf-map').each(function(){
+            $('.acf-map').each(function () { // create map
+              map = new_map($(this));
 
-            // create map
-            map = new_map( $(this) );
+            });
 
           });
 
-        });
-
         })(jQuery);
-        </script>
-      <div class="row">
+      </script>
+      <div class="row snap-child">
         {% for address in fn.get_field("adresses", post.ID) %}
           <div class="col-sm-6 col-md-8 mb-2">
             <div class="row">
@@ -180,27 +159,51 @@
             </div>
           </div>
           <div class="col-sm-6 col-md-4 mb-5">
-           {% include 'parts/map.twig' with { 'lat': address.address.lat, 'lng': address.address.lng } %}
-          </div>          
+            {% include 'parts/map.twig' with { 'lat': address.address.lat, 'lng': address.address.lng } %}
+          </div>
         {% endfor %}
       </div>
     {% endif %}
   </div>
-  <section class="snap-child">
-    <h2>Team</h2>
+  <section class="snap-child team">
     {% if fn.get_field("team", post.ID) %}
-      <div class="row">
-        {% for person in fn.get_field("team", post.ID) %}
-        <div class="col-md-6 offset-md-3 mb-5">
-          <h4>{{ person.firstname }} {{ person.lastname }}</h4>
-          {% if person.image %}
-            <img src="{{ person.image.sizes.reference_thumbnail_2x }}" alt="{{ person.firstname }} {{ person.lastname }}" class="img-fluid mb-3">
-          {% endif %}
-          <div class="content">
-            {{ person.content|raw }}
+      <div class="container-fluid">
+        <div class="slider">
+          <div class="row">
+            <div class="col-9 col-md-8 slider">
+              {% for item in fn.get_field("team", post.ID) %}
+                <div class="slider-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
+                    </div>
+                    <div class="col-6 col-md-4 ml-5 ml-md-0">
+                      <h3>Team</h3>
+                      <div>
+                        <h4 class="h6">
+                          {{ item.firstname }}
+                          {{ item.lastname }}
+                        </h4>
+                        <p>{{ item.content|raw }}</p>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="col-3 col-md-4">
+              <div class="slider-select">
+                {% for item in fn.get_field("team", post.ID) %}
+                  <a href="#" class="slider-select-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
+                    <span>{{ item.firstname }}</span>
+                  </a>
+                {% endfor %}
+              </div>
+            </div>
           </div>
         </div>
-        {% endfor %}
       </div>
     {% endif %}
   </section>

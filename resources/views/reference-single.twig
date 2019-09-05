@@ -1,8 +1,8 @@
 {% extends 'layout/main.twig' %}
 
-{% block main %}  
-  <div class="container snap-child">
-    <div class="row">
+{% block main %}
+  <div class="container">
+    <div class="row snap-child">
       <div class="col-md-4 col-lg-4">
         <h2>{{ post.post_title }}</h2>
         <a href="{{ fn.get_permalink(post.ID)|trim('/', 'right') }}.pdf" download class="btn btn-outline-primary">pdf</a>
@@ -11,41 +11,39 @@
         <p>{{ fn.get_field("description", post.ID)|raw }}</p>
       </div>
     </div>
-    
-    <div class="snap-child">
-      <div class="row">
-        <div class="col-12 data-table">
-          {% if fn.get_field("entreprise", post.ID) %}
-            <div class="data-table-col">
-              <h3>Entreprise</h3>
-              <p>{{ fn.get_field("entreprise", post.ID)|raw }}</p>
-            </div>
-          {% endif %}
-          {% if fn.get_field("realisation", post.ID) %}
-            <div class="data-table-col">
-              <h3>Réalisation</h3>
-              <p>{{ fn.get_field("realisation", post.ID)|raw }}</p>
-            </div>
-          {% endif %}
-          {% if fn.get_field("prestation", post.ID) %}
-            <div class="data-table-col">
-              <h3>Prestation</h3>
-              <p>{{ fn.get_field("prestation", post.ID)|raw }}</p>
-            </div>
-          {% endif %}
-          {% if fn.get_field("couts", post.ID) %}
-            <div class="data-table-col">
-              <h3>Couts</h3>
-              <p>{{ fn.get_field("couts", post.ID)|raw }}</p>
-            </div>
-          {% endif %}
-          {% if fn.get_field("divers", post.ID) %}
-            <div class="data-table-col">
-              <h3>Divers</h3>
-              <p>{{ fn.get_field("divers", post.ID)|raw }}</p>
-            </div>
-          {% endif %}
-        </div>
+
+    <div class="snap-child row">
+      <div class="col-12 data-table">
+        {% if fn.get_field("entreprise", post.ID) %}
+          <div class="data-table-col">
+            <h3>Entreprise</h3>
+            <p>{{ fn.get_field("entreprise", post.ID)|raw }}</p>
+          </div>
+        {% endif %}
+        {% if fn.get_field("realisation", post.ID) %}
+          <div class="data-table-col">
+            <h3>Réalisation</h3>
+            <p>{{ fn.get_field("realisation", post.ID)|raw }}</p>
+          </div>
+        {% endif %}
+        {% if fn.get_field("prestation", post.ID) %}
+          <div class="data-table-col">
+            <h3>Prestation</h3>
+            <p>{{ fn.get_field("prestation", post.ID)|raw }}</p>
+          </div>
+        {% endif %}
+        {% if fn.get_field("couts", post.ID) %}
+          <div class="data-table-col">
+            <h3>Couts</h3>
+            <p>{{ fn.get_field("couts", post.ID)|raw }}</p>
+          </div>
+        {% endif %}
+        {% if fn.get_field("divers", post.ID) %}
+          <div class="data-table-col">
+            <h3>Divers</h3>
+            <p>{{ fn.get_field("divers", post.ID)|raw }}</p>
+          </div>
+        {% endif %}
       </div>
 
       <div class="row snap-child-no-margin">
