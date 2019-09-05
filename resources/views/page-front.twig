@@ -1,6 +1,6 @@
 {% extends 'layout/main.twig' %}
 
-{% block main %}  
+{% block main %}
   <div class="container">
     <section class="snap-child section-full-height intro">
       <div class="section-container d-flex w-100">
@@ -22,24 +22,40 @@
         </div>
       </div>
     </section>
-    <section class="snap-child section-full-height history">
-      <div class="section-container">
-        {% if fn.get_field("history", post.ID) %}
-          <div class="history-slider row">
+  </div>
+  <section class="snap-child section-full-height history">
+    <div class="section-container">
+      {% if fn.get_field("history", post.ID) %}
+        <div class="history-slider row">
+          <div class="col-md-8 history-slider">
             {% for item in fn.get_field("history", post.ID) %}
-              <div class="col-md-4 mb-5">
-                <p class="mb-0"><strong>{{ item.date }}</strong></p>
-                <h3>{{ item.title }}</h3>
-                {% if item.image %}
-                  <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
-                {% endif %}
-                <div>{{ item.text|raw }}</div>
+              <div class="history-slider-item" data-id="{{loop.index}}">
+                <div class="row">
+                  <div class="col-md-8">
+                    <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
+                  </div>
+                  <div class="col-md-4">
+                    <h3>{{ item.title }}</h3>
+                    <div>{{ item.text|raw }}</div>
+                  </div>
+                </div>
               </div>
             {% endfor %}
           </div>
-        {% endif %}
-      </div>
-    </section>
+          <div class="col-md-4">
+            <div class="history-slider-select">
+              {% for item in fn.get_field("history", post.ID) %}
+                <a href="#" class="history-slider-select-item" data-id="{{loop.index}}">
+                  <span>{{ item.date }}</span>
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+  <div class="container">
     <section class="snap-child section-full-height references">
       <div class="section-container">
         <div class="row">
@@ -62,7 +78,7 @@
             {% endfor %}
           </div>
         {% endif %}
-        
+
         <a href="/references" class="btn btn-outline-primary mt-5">Toutes les références</a>
       </div>
     </section>

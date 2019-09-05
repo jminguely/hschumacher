@@ -1,3 +1,5 @@
+import historySlider from  './components/history-slider'
+
 document.addEventListener("DOMContentLoaded", function() {
   document.documentElement.classList.remove("no-js");
   document.documentElement.classList.add("js");
@@ -6,4 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
     e.preventDefault();
     document.body.classList.toggle('modal-nav-is-visible');
   }
+
+  historySlider();
 });

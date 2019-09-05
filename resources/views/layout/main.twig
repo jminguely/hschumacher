@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html class="no-js">
-<head>
-{% include 'parts/meta.twig' %}
+  <head>
+    {% include 'parts/meta.twig' %}
 
-{{ wp_head() }}
-</head>
-<body {{ fn.body_class('scroll-snap-container')}}>
+    {{ wp_head() }}
+  </head>
+  <body
+    {{ fn.body_class('scroll-snap-container')}}>
 
-{# {{ source('icons-sprite.svg') }} #}
+    {# {{ source('icons-sprite.svg') }} #}
 
-<div id="app">
-    {% include 'parts/header.twig' %}
-    <div class="main-wrapper">
-        <div class="container">
-        {% block main %}{% endblock %}
+    <div id="app">
+      {% include 'parts/header.twig' %}
+      <div class="main-wrapper"> {% block main %}{% endblock %}
         </div>
-    </div>
-    {% include 'parts/footer.twig' %}
-</div>
-{{ wp_footer() }}
+        {% include 'parts/footer.twig' %}
+      </div>
+      {{ wp_footer() }}
 
-</body>
-</html>
+    </body>
+  </html>
