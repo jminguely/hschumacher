@@ -24,36 +24,46 @@
     </section>
   </div>
   <section class="snap-child section-full-height history">
-    <div class="section-container">
-      {% if fn.get_field("history", post.ID) %}
-        <div class="history-slider row">
-          <div class="col-md-8 history-slider">
-            {% for item in fn.get_field("history", post.ID) %}
-              <div class="history-slider-item" data-id="{{loop.index}}">
-                <div class="row">
-                  <div class="col-md-8">
-                    <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
-                  </div>
-                  <div class="col-md-4">
-                    <h3>{{ item.title }}</h3>
-                    <div>{{ item.text|raw }}</div>
+    {% if fn.get_field("history", post.ID) %}
+      <div class="container-fluid">
+        <div class="history-slider">
+          <div class="row">
+            <div class="col-9 col-md-8 history-slider">
+              {% for item in fn.get_field("history", post.ID) %}
+                <div class="history-slider-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
+                    </div>
+                    <div class="col-6 col-md-4 ml-5 ml-md-0">
+                      <h3>{{ item.title }}</h3>
+                      <div>{{ item.text|raw }}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            {% endfor %}
-          </div>
-          <div class="col-md-4">
-            <div class="history-slider-select">
-              {% for item in fn.get_field("history", post.ID) %}
-                <a href="#" class="history-slider-select-item" data-id="{{loop.index}}">
-                  <span>{{ item.date }}</span>
-                </a>
               {% endfor %}
+            </div>
+            <div class="col-3 col-md-4">
+              <div class="history-slider-select">
+                <div class="history-title mb-3">
+                  <span class="year h5">1969</span>
+                  <span class="desc small">Bureau technique Schumacher et Tercier</span>
+                </div>
+                {% for item in fn.get_field("history", post.ID) %}
+                  <a href="#" class="history-slider-select-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
+                    <span>{{ item.date }}</span>
+                  </a>
+                {% endfor %}
+                <div class="history-title mt-3">
+                  <span class="year h5">2019</span>
+                  <span class="desc small">H.Schumacher, ICeau, MSeau, IDeau</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      {% endif %}
-    </div>
+      </div>
+    {% endif %}
   </section>
   <div class="container">
     <section class="snap-child section-full-height references">

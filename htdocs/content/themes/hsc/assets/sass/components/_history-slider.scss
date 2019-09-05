@@ -1,18 +1,17 @@
 .history-slider {
-  position: relative;
-  min-height: 10em;
-  
   .history-slider-item {
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     opacity: 0;
-    transition: opacity 0.3s linear;
+    transition: opacity 0.3s linear, display 0s 0.3s;
+    display: none;
 
     &.active {
+      display: block;
       opacity: 1;
       z-index: 10;
+      transition: opacity 0.3s linear, display 0s 0s;
     }
   }
 }
@@ -21,36 +20,55 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
+  right: -$grid-gutter-width / 2;
 
-  a {
+  .history-title {
+    background: transparentize(theme-color("primary"), 0.7); 
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+    padding: 0.2em 1em;
+
+    .desc {
+      
+    }
+    .desc {
+
+    }
+  }
+
+  .history-slider-select-item {
     display: block;
     position: relative;
-    margin: 0.5em 4em 0.5em 1em;
-    padding: 0 1em 0 0;
+    margin: 0.5em 0 0.5em 2em;
+    padding: 0 4em 0 0;
     text-decoration: none;
     transition: color 0.3s ease;
+    font-size: 0.8em;
     
     span {
       position: relative;
       z-index: 10;
+      pointer-events: none;
     }
 
     &.active {
       color: $white;
       
       &:after {
-        width: 12em;
+        width: 10em;
+        background: transparentize(theme-color("primary"), 0.7);
       }
     }
 
     &:after {
       content: '';
       position: absolute;
-      width: 4em;
+      width: 3em;
       height: 100%;
       background: theme-color("primary") ;
       top: 0;
-      right: -4em;
+      right: 0;
       border-top-left-radius: 1em;
       border-bottom-left-radius: 1em;
       z-index: 5;
