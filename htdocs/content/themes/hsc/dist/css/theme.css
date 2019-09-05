@@ -6783,6 +6783,19 @@ body.modal-nav-is-visible {
   position: relative;
   right: -15px;
 }
+.history-slider-select:after {
+  content: "50";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: rgba(49, 189, 230, 0.1);
+  pointer-events: none;
+  font-size: 15em;
+  font-family: "Playfair Display";
+  z-index: 0;
+  -webkit-transform: translateY(30%);
+          transform: translateY(30%);
+}
 .history-slider-select .history-title {
   background: rgba(49, 189, 230, 0.3);
   border-top-left-radius: 1em;

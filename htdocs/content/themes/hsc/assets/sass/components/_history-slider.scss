@@ -23,18 +23,24 @@
   position: relative;
   right: -$grid-gutter-width / 2;
 
+  &:after {
+    content: '50';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: transparentize(theme-color("primary"), 0.9);
+    pointer-events: none;
+    font-size: 15em;
+    font-family: $headings-font-family;
+    z-index: 0;
+    transform: translateY(30%);
+  }
+
   .history-title {
     background: transparentize(theme-color("primary"), 0.7); 
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
     padding: 0.2em 1em;
-
-    .desc {
-      
-    }
-    .desc {
-
-    }
   }
 
   .history-slider-select-item {
