@@ -3,7 +3,6 @@
   flex-direction: column;
   background: $white;
   border: 1em solid $white;
-  transition: border 0.2s ease;
   color: $darkerblue;
   width: 100%;
   background: $gray-500;
@@ -12,13 +11,8 @@
 
   &:hover {
     text-decoration: none;
-    color: $darkerblue;
-    border-color: lighten($blue, 40%);
-
-    .blog-card-category {
-      background: lighten($blue, 40%);
-    }
   }
+
 
   .blog-card-category {
     position: absolute;
@@ -32,7 +26,6 @@
     font-size: 0.9em;
     font-weight: bold;
     color: $blue;
-    transition: background 0.2s ease;
   }
 }
 

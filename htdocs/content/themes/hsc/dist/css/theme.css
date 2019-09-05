@@ -7044,7 +7044,6 @@ body.modal-nav-is-visible {
           flex-direction: column;
   background: #fff;
   border: 1em solid #fff;
-  transition: border 0.2s ease;
   color: #00323E;
   width: 100%;
   background: #adb5bd;
@@ -7053,11 +7052,6 @@ body.modal-nav-is-visible {
 }
 .blog-card:hover {
   text-decoration: none;
-  color: #00323E;
-  border-color: #e7f7fc;
-}
-.blog-card:hover .blog-card-category {
-  background: #e7f7fc;
 }
 .blog-card .blog-card-category {
   position: absolute;
@@ -7071,7 +7065,6 @@ body.modal-nav-is-visible {
   font-size: 0.9em;
   font-weight: bold;
   color: #31BDE6;
-  transition: background 0.2s ease;
 }
 
 .blog-card-title {

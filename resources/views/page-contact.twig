@@ -165,6 +165,7 @@
       </div>
     {% endif %}
   </div>
+  {% include 'parts/video.twig' with { videoName: 'riviere_2'} %}
   <section class="snap-child team">
     {% if fn.get_field("team", post.ID) %}
       <div class="container-fluid">

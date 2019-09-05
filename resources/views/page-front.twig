@@ -65,11 +65,7 @@
       </div>
     {% endif %}
   </section>
-  <div class="full-width-video">
-    <video autoplay muted loop>
-      <source src="{{ fn.get_template_directory_uri }}/dist/img/riviere_1.mp4" type="video/mp4">
-    </video>
-  </div>
+  {% include 'parts/video.twig' with { videoName: 'riviere_1'} %}
   <div class="container">
     <section class="snap-child section-full-height references">
       <div class="section-container">
