@@ -1,4 +1,5 @@
 import slider from  './components/slider'
+import animation from  './components/animation'
 
 document.addEventListener("DOMContentLoaded", function() {
   document.documentElement.classList.remove("no-js");
@@ -10,4 +11,5 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   slider();
+  animation();
 });

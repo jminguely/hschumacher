@@ -21,7 +21,6 @@ export default () => {
           slide.classList.remove('active');
         }
       }
-
     })
   }
 };
