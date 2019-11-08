@@ -6886,7 +6886,7 @@ body.modal-nav-is-visible {
   font-size: 1rem;
 }
 .site-header .logo {
-  max-width: 200px;
+  max-width: 250px;
 }
 
 .toggle-navigation {
@@ -6894,7 +6894,7 @@ body.modal-nav-is-visible {
   z-index: 10000;
   top: 0;
   right: 0;
-  margin: 2.5em 15px 1em;
+  margin: 3.5em 15px 1em;
   color: #fff;
 }
 .toggle-navigation .burger-icon {
