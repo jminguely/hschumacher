@@ -21,7 +21,8 @@ mix.options({
 });
 
 mix.js('assets/js/theme.js', 'dist/js/theme.min.js')
-   .sass('assets/sass/style.scss', 'dist/css/theme.css');
+   .sass('assets/sass/style.scss', 'dist/css/theme.css')
+   .copyDirectory('assets/animations', 'dist/animations');
 
 mix.webpackConfig({
     plugins: [

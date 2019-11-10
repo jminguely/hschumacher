@@ -88,7 +88,8 @@ class Application extends Hookable
             echo $this->app->outputJavascriptGlobal(
                 config('assets.ajax.front', 'themosis'),
                 apply_filters('themosis_front_global', [
-                    'ajaxurl' => admin_url('admin-ajax.php')
+                    'ajaxurl' => admin_url('admin-ajax.php'),
+                    'animationsurl' => get_template_directory_uri().'/dist/animations'
                 ])
             );
 

@@ -2,26 +2,38 @@ import * as ScrollMagic from "scrollmagic"; // Or use scrollmagic-with-ssr to av
 import { TweenMax, TimelineMax } from "gsap"; // Also works with TweenLite and TimelineLite
 import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
+import lottie from 'lottie-web';
+
+console.log(lottie);
+
 export default () => {
-  ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+  // ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
-  var controller = new ScrollMagic.Controller();
+  // var controller = new ScrollMagic.Controller();
 
-  const elements = document.getElementsByClassName('sticky-element');
+  // const elements = document.getElementsByClassName('sticky-element');
 
-  console.log(elements);
+  // console.log(elements);
 
-  for (let index = 0; index < array.length; index++) {
-    const element = array[index];
-    
-  }
+  // for (let index = 0; index < array.length; index++) {
+  //   const element = array[index];
+  // }
 
-  // create a scene
-  new ScrollMagic.Scene({
-    duration: 300, // the scene should last for a scroll distance of 100px
-    offset: 50 // start this scene after scrolling for 50px
-  })
-    .setPin('.sticky-element') // pins the element for the the scene's duration
-    .addTo(controller); // assign the scene to the controller
+  // // create a scene
+  // new ScrollMagic.Scene({
+  //   duration: 300, // the scene should last for a scroll distance of 100px
+  //   offset: 50 // start this scene after scrolling for 50px
+  // })
+  //   .setPin('.sticky-element') // pins the element for the the scene's duration
+  //   .addTo(controller); // assign the scene to the controller
 
+  const animationSettings = {
+    container: document.getElementById('animation-intro'),
+    renderer: 'svg',
+    loop: false,
+    autoplay: true,
+    path: `${themosis.animationsurl}/intro.json`
+  };
+
+  const animation = lottie.loadAnimation(animationSettings);
 };
