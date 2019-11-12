@@ -7,9 +7,9 @@ import lottie from 'lottie-web';
 console.log(lottie);
 
 export default () => {
-  // ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+  ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 
-  // var controller = new ScrollMagic.Controller();
+  var controller = new ScrollMagic.Controller();
 
   // const elements = document.getElementsByClassName('sticky-element');
 
@@ -35,5 +35,35 @@ export default () => {
     path: `${themosis.animationsurl}/intro.json`
   };
 
-  const animation = lottie.loadAnimation(animationSettings);
+  lottie.loadAnimation(animationSettings);
+
+  const animationLines = document.getElementsByClassName('animation-lines');
+  
+  for (let index = 0; index < animationLines.length; index++) {
+    let animationPlayed = false;
+    const animationSequence = animationLines[index].getAttribute('data-seq');
+
+    const animation = lottie.loadAnimation({
+      container: animationLines[index],
+      renderer: 'svg',
+      loop: false,
+      autoplay: false,
+      path: `${themosis.animationsurl}/lines.json`
+    });
+    animation.goToAndStop(1, true);
+
+    animation.addEventListener('DOMLoaded',function(){
+      
+      var scene = new ScrollMagic.Scene({triggerElement: animationLines[index], duration: 200})
+        .addTo(controller)
+        .on("enter leave", function (e) {
+          if (e.type == "enter" && !animationPlayed) {
+            animationPlayed = true;
+            animation.playSegments([0 + (50 * animationSequence), 50 + (50 * animationSequence)], true);
+          }
+        });
+    });
+
+  
+  }
 };

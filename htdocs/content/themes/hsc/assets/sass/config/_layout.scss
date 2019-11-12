@@ -112,3 +112,15 @@ body {
     transform: translateY(30%);
   }
 }
+
+.animation-lines {
+  position: absolute;
+  z-index: 0;
+  opacity: 0.4;
+
+  &.animation-lines-left {
+    left: 0;
+    width: 50vw;
+    height: auto;
+  }
+}

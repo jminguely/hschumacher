@@ -1,130 +1,129 @@
 {% extends 'layout/main.twig' %}
 
 {% block main %}
-  <div class="container">
-    <section class="snap-child-no-margin section-full-height intro">
-      <div class="section-container d-flex w-100">
-        <div class="m-auto sticky-element">
-          <div id="animation-intro"></div>
-        </div>
-      </div>
-    </section>
-    <section class="snap-child section-full-height prestations">
-      <div class="section-container">
-        <div class="row">
-          <div class="col-xl-6 col-lg-8 col-md-10">
-            <h2 class="mb-3">Prestations</h2>
-            <div class="text mb-5">
-              {{ fn.get_field("prestations", post.ID).text|raw }}
-            </div>
-            <div>
-              <a href="{{ fn.get_field("prestations", post.ID).link }}" class="btn btn-outline-primary">Prestations</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-  <section class="snap-child history">
-    {% if fn.get_field("history", post.ID) %}
-      <div class="container">
-        <div class="slider">
-          <div class="row">
-            <div class="col-9 col-md-8 slider">
-              {% for item in fn.get_field("history", post.ID) %}
-                <div class="slider-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
-                  <div class="row">
-                    <div class="col-sm-8">
-                      <img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
-                    </div>
-                    <div class="col-6 col-md-4 ml-5 ml-md-0">
-                      <h3>{{ item.title }}</h3>
-                      <div>{{ item.text|raw }}</div>
-                    </div>
-                  </div>
-                </div>
-              {% endfor %}
-            </div>
-            <div class="col-3 col-md-4">
-              <div class="slider-select fifty-filigrane">
-                <div class="slider-title mb-3">
-                  <span class="year h5">1969</span>
-                  <span class="desc small">Bureau technique Schumacher et Tercier</span>
-                </div>
-                {% for item in fn.get_field("history", post.ID) %}
-                  <a href="#" class="slider-select-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
-                    <span>{{ item.date }}</span>
-                  </a>
-                {% endfor %}
-                <div class="slider-title mt-3">
-                  <span class="year h5">2019</span>
-                  <span class="desc small">H.Schumacher, ICeau, MSeau, IDeau</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    {% endif %}
-  </section>
-  {% include 'parts/video.twig' with { videoName: 'riviere_1'} %}
-  <div class="container">
-    <section class="snap-child section-full-height references">
-      <div class="section-container">
-        <div class="row">
-          <div class="col-12">
-            <h2>Références</h2>
-            <div class="m-auto sticky-element">[animation intro]</div>
-            <p>Tempore tempore necessitatibus. Labore eum vero dignissimos. Expedita tempora molestias rerum.</p>
-          </div>
-        </div>
-        {% if references %}
-          <div class="row">
-            {% for reference in references %}
-              <div class="col-md-4">
-                <a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card mb-3">
-                  <h5 class="reference-card-title h6">{{ reference.post_title }}</h5>
-                  {% if fn.get_field("galerie", reference.ID) %}
-                    <img class="reference-card-img" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
-                  {% endif %}
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
+	<div class="container">
+		<section class="snap-child-no-margin intro">
+			<div class="section-container d-flex w-100">
+				<div class="m-auto sticky-element">
+					<div id="animation-intro"></div>
+				</div>
+			</div>
+		</section>
+		<section class="snap-child section-full-height prestations">
+			<div class="section-container">
+				<div class="row">
+					<div class="col-xl-6 col-lg-8 col-md-10">
+						<h2 class="mb-3">Prestations</h2>
+						<div class="text mb-5">
+							{{ fn.get_field("prestations", post.ID).text|raw }}
+						</div>
+						<div>
+							<a href="{{ fn.get_field("prestations", post.ID).link }}" class="btn btn-outline-primary">Prestations</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<section class="snap-child history">
+		{% if fn.get_field("history", post.ID) %}
+			<div class="container">
+				<div class="slider">
+					<div class="row">
+						<div class="col-9 col-md-8 slider">
+							{% for item in fn.get_field("history", post.ID) %}
+								<div class="slider-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
+									<div class="row">
+										<div class="col-sm-6">
+											<img src="{{ item.image.sizes.reference_thumbnail_2x }}" alt="" class="img-fluid mb-3">
+										</div>
+										<div class="col-8 col-md-6 ml-5 ml-md-0">
+											<h3>{{ item.title }}</h3>
+											<div>{{ item.text|raw }}</div>
+										</div>
+									</div>
+								</div>
+							{% endfor %}
+						</div>
+						<div class="col-3 col-md-4">
+							<div class="slider-select fifty-filigrane">
+								<div class="slider-title mb-3">
+									<span class="year h5">1969</span>
+									<span class="desc small">Bureau technique Schumacher et Tercier</span>
+								</div>
+								{% for item in fn.get_field("history", post.ID) %}
+									<a href="#" class="slider-select-item {% if loop.first %}active{% endif %}" data-id="{{loop.index}}">
+										<span>{{ item.date }}</span>
+									</a>
+								{% endfor %}
+								<div class="slider-title mt-3">
+									<span class="year h5">2019</span>
+									<span class="desc small">H.Schumacher, ICeau, MSeau, IDeau</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{% endif %}
+	</section>
+	{% include 'parts/video.twig' with { videoName: 'riviere_1'} %}
+	<div class="container">
+		<section class="snap-child section-full-height references">
+			<div class="animation-lines animation-lines-left" data-seq="0"></div>
+			<div class="section-container">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="mb-4">Références</h2>
+					</div>
+				</div>
+				{% if references %}
+					<div class="row">
+						{% for reference in references %}
+							<div class="col-md-4">
+								<a href="{{ fn.get_permalink(reference.ID) }}" class="reference-card mb-3">
+									<h5 class="reference-card-title h6">{{ reference.post_title }}</h5>
+									{% if fn.get_field("galerie", reference.ID) %}
+										<img class="reference-card-img" src="{{ fn.get_field("galerie", reference.ID)|first.sizes.reference_thumbnail }}">
+									{% endif %}
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
 
-        <a href="/references" class="btn btn-outline-primary mt-5">Toutes les références</a>
-      </div>
-    </section>
-    <section class="snap-child section-full-height">
-      <div class="section-container blog-frame">
-        <h2 class="blog-frame-title">Blog</h2>
-        {% if posts %}
-          <div class="row">
-            {% for post in posts %}
-              <div class="col-md-4 d-flex">
-                <a class="blog-card" href="{{ fn.get_permalink(post.ID) }}">
-                  <span class="blog-card-category">
-                    {{ fn.get_the_category(post.ID)|first.name }}
-                  </span>
-                  {{ fn.get_the_post_thumbnail(post.ID, 'reference_thumbnail', {'class': 'img-full'})|raw }}
-                  <p class="blog-card-title mt-auto mb-0 pt-3">
-                    {{ post.post_title }}
-                  </p>
-                  <div class="blog-data pt-1">
-                    <time class="blog-card-time" datetime="{{ post.post_date|date("Y-m-d") }}">
-                      {{ post.post_date|date("d.m.Y") }}
-                    </time>
-                    <span class="blog-card-sep">|</span>
-                    <span class="blog-card-author">{{ fn.get_the_author_meta('display_name', post.post_author) }}</span>
-                  </div>
-                </a>
-              </div>
-            {% endfor %}
-          </div>
-        {% endif %}
-        <a class="btn btn-outline-primary my-1 ml-auto font-weight-bold" href="{{ fn.get_post_type_archive_link('post') }}">Tous les articles</a>
-      </div>
-    </section>
-  </div>
+				<a href="/references" class="btn btn-outline-primary mt-5">Toutes les références</a>
+			</div>
+		</section>
+		<section class="snap-child section-full-height">
+			<div class="section-container blog-frame">
+				<h2 class="blog-frame-title">Blog</h2>
+				{% if posts %}
+					<div class="row">
+						{% for post in posts %}
+							<div class="col-md-4 d-flex">
+								<a class="blog-card" href="{{ fn.get_permalink(post.ID) }}">
+									<span class="blog-card-category">
+										{{ fn.get_the_category(post.ID)|first.name }}
+									</span>
+									{{ fn.get_the_post_thumbnail(post.ID, 'reference_thumbnail', {'class': 'img-full'})|raw }}
+									<p class="blog-card-title mt-auto mb-0 pt-3">
+										{{ post.post_title }}
+									</p>
+									<div class="blog-data pt-1">
+										<time class="blog-card-time" datetime="{{ post.post_date|date("Y-m-d") }}">
+											{{ post.post_date|date("d.m.Y") }}
+										</time>
+										<span class="blog-card-sep">|</span>
+										<span class="blog-card-author">{{ fn.get_the_author_meta('display_name', post.post_author) }}</span>
+									</div>
+								</a>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+				<a class="btn btn-outline-primary my-1 ml-auto font-weight-bold" href="{{ fn.get_post_type_archive_link('post') }}">Tous les articles</a>
+			</div>
+		</section>
+	</div>
 {% endblock %}
