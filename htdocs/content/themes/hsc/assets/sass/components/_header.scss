@@ -9,11 +9,14 @@
 
   h1 {
     font-size: $font-size-base;
-    // padding: 1em 0;
   }
 
   .logo {
-    max-width: 250px;;
+    max-width: 250px;
+
+    @include media-breakpoint-down(sm) {
+      max-width: 150px;
+    }
   }
 }
 
@@ -22,8 +25,12 @@
   z-index: 10000;
   top: 0;
   right: 0;
-  margin: 3.5em ($grid-gutter-width / 2) 1em;
+  margin: 3.6em ($grid-gutter-width / 2) 1em;
   color: $white;
+
+  @include media-breakpoint-down(sm) {
+    margin: 2.2em ($grid-gutter-width / 2) 1em;
+  }
 
   .burger-icon {
     @include burger(25px, 3px, 5px, $white);
@@ -34,68 +41,66 @@
   }
 }
 
-.site-navigation {
-  @include media-breakpoint-down(sm) {
-    position: fixed;
-    display: flex;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    opacity: 0;
-    background: transparentize($body-bg, 0.1);
-    z-index: 9999;
-    transition: opacity 0.3s, transform 0s 0.3s;
-    transform: translate(-100%);
+.modal-navigation {
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  background: transparentize($body-bg, 0.1);
+  z-index: 9999;
+  transition: opacity 0.3s, transform 0s 0.3s;
+  transform: translate(-100%);
 
-    .modal-nav-is-visible & {
-      opacity: 1;
-      transform: translate(0);
-      transition: opacity 0.3s, transform 0s;
-    }
-
-    ul {
-      margin: auto;
-      list-style: none;
-      padding: 0;
-      text-align: center;
-
-      li {
-        margin: 0;
-        padding: 0;
-
-        a {
-          color: $white;
-          font-size: 1.5em;
-          line-height: 1.8;
-        }
-      }
-    }
+  .modal-nav-is-visible & {
+    opacity: 1;
+    transform: translate(0);
+    transition: opacity 0.3s, transform 0s;
   }
 
-  @include media-breakpoint-up(md) {
-    ul {
-      display: flex;
-      list-style: none;
+  ul {
+    margin: auto;
+    list-style: none;
+    padding: 0;
+    text-align: center;
+
+    li {
       margin: 0;
       padding: 0;
-  
-      li {
-        margin: 0;
-        padding: 0;
-  
-        a {
-          padding: 1em 1em;
-          color: $white;
-          font-family: $headings-font-family;
-        }
-  
-        a:hover {
-          text-decoration: none;
-        }
+
+      a {
+        color: $white;
+        font-size: 1.5em;
+        line-height: 1.8;
       }
     }
   }
-
-  
 }
+
+.site-navigation {
+  margin-right: 2em;
+
+  ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+
+      a {
+        padding: 1em 1em;
+        color: $white;
+        font-family: $headings-font-family;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}  

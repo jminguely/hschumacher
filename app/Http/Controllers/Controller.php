@@ -19,13 +19,17 @@ class Controller extends BaseController
    */
   public function __construct()
   {
-    $menu_name = 'main-nav';
     $locations = get_nav_menu_locations();
-    $menu = wp_get_nav_menu_object( $locations[ $menu_name ] );
-    $menuitems = wp_get_nav_menu_items( $menu->term_id, array( 'order' => 'DESC' ) );
+    
+    $mainmenu = wp_get_nav_menu_object( $locations[ 'main-nav' ] );
+    $mainmenuitems = wp_get_nav_menu_items( $mainmenu->term_id, array( 'order' => 'DESC' ) );
+    
+    $topmenu = wp_get_nav_menu_object( $locations[ 'top-nav' ] );
+    $topmenuitems = wp_get_nav_menu_items( $topmenu->term_id, array( 'order' => 'DESC' ) );
 
     View::share([
-      'mainNav'  => $menuitems,
+      'mainNav'  => $mainmenuitems,
+      'topNav'  => $topmenuitems,
     ]);    
   }
 }

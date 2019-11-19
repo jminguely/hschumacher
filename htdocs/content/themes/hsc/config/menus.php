@@ -8,4 +8,5 @@
  */
 return [
     'main-nav' => __('Main Navigation', THEME_TD),
+    'top-nav' => __('Top Navigation', THEME_TD),
 ];
