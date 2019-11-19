@@ -4,8 +4,6 @@ import { ScrollMagicPluginGsap } from "scrollmagic-plugin-gsap";
 
 import lottie from 'lottie-web';
 
-console.log(lottie);
-
 export default () => {
   ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 

@@ -1,5 +1,5 @@
 <div class="full-width-video snap-child-no-margin">
-  <video autoplay muted loop>
-    <source src="{{ fn.get_template_directory_uri }}/dist/img/{{ videoName|default('riviere_1')}}.mp4" type="video/mp4">
-  </video>
+	<video autoplay muted loop data-object-fit="cover">
+		<source src="{{ fn.get_template_directory_uri }}/dist/img/{{ videoName|default('riviere_1')}}.mp4" type="video/mp4">
+	</video>
 </div>

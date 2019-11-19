@@ -1,5 +1,6 @@
-import slider from  './components/slider'
-import animation from  './components/animation'
+import slider             from  './components/slider'
+import animation          from  './components/animation'
+import 'objectFitPolyfill/dist/objectFitPolyfill.basic.min';
 
 document.addEventListener("DOMContentLoaded", function() {
   document.documentElement.classList.remove("no-js");
@@ -12,4 +13,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
   slider();
   animation();
+  objectFitPolyfill();
 });
